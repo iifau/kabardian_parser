@@ -1,14 +1,18 @@
 PATTERNS
+Zero
 OneNine Coord?
-TenPlus Over OneNine Coord?
+TenPlus Over OneNine
 HundredBy TwoNine Coord?
 TenDeg Coord?
-OneNine Fract
-Reduplication :TwoNine Distr TwoNine
-Reduplication :One Distr One
+# TwoNine Fract
+# Reduplication :TwoNine Distr TwoNine
+# Reduplication :One Distr One
 
 PATTERN OneNine
 One | TwoNine
+
+LEXICON Zero
+<0>:нол
 
 LEXICON One
 <1>:з{ə}
@@ -25,24 +29,26 @@ LEXICON TwoNine
 
 LEXICON TenPlus
 <10>:пщы
-# <10>:пшы
-# <10>:пшьы
+<10>:пшы
+<10>:пшьы
 
 LEXICON Over
-<over>:кӏу
+<проходить>:кӏу
 
 LEXICON HundredBy
 <100>:щи
+<100>:ши
 
 LEXICON TenDeg
 <10>:пщӏы
-# <10>:пӏщӏы
-# <10>:пшӏы
-# <10>:пӏчьӏы
+<10>:пӏщӏы
+<10>:пшӏы
+<10>:пӏчьӏы
 <100>:щэ
+<100>:шэ
 <1000>:мин
 <1000000>:мелуан
-# <1000000>:мелиуан
+<1000000>:мелиуан
 
 LEXICON Fract
 <fract>:анэ
