@@ -1,15 +1,18 @@
 PATTERNS
 Zero
 OneNine Coord?
-TenPlus Over OneNine Fract?
-HundredBy TwoNine (Coord | Fract)?
-TenDeg (Coord | Fract)?
-TwoNine Fract
+TenPlus Over OneNine Fraction?
+HundredBy TwoNine (Coord | Fraction)?
+TenDeg (Coord | Fraction)?
+TwoNine Fraction
 # Reduplication :TwoNine Distr TwoNine
 # Reduplication :One Distr One
 
 PATTERN OneNine
 One | TwoNine
+
+PATTERN Fraction
+Fract TwoNine? # пока нет числителей, которые степени десятки
 
 LEXICON Zero
 <0>:нол
