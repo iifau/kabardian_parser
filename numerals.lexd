@@ -5,11 +5,18 @@ TenPlus Over OneNine Fraction?
 HundredBy TwoNine (Coord | Fraction)?
 TenDeg (Coord | Fraction)?
 TwoNine Fraction
+OneFive Layer
 # Reduplication :TwoNine Distr TwoNine
 # Reduplication :One Distr One
 
 PATTERN OneNine
-One | TwoNine
+One | TwoFive | SixNine
+
+PATTERN TwoNine
+TwoFive | SixNine
+
+PATTERN OneFive
+One | TwoFive
 
 PATTERN Fraction
 Fract TwoNine? # пока нет числителей, которые степени десятки
@@ -20,11 +27,13 @@ LEXICON Zero
 LEXICON One
 <1>:з{ə}
 
-LEXICON TwoNine
+LEXICON TwoFive
 <2>:тӏ{ʷ}{ə}
 <3>:щ{ə}
 <4>:плӏ{ə}
 <5>:тх{ʷ}{ə}
+
+LEXICON SixNine
 <6>:х{ə}
 <7>:бл{ə}
 <8>:й{ə}
@@ -58,6 +67,9 @@ LEXICON Fract
 
 LEXICON Coord
 <coord>:рэ
+
+LEXICON Layer
+<слой>:ащӏэ
 
 LEXICON Distr
 <distr>:ры
