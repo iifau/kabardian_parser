@@ -2,10 +2,13 @@ PATTERNS
 Zero
 OneNine Coord?
 TenPlus Over OneNine Fraction?
-HundredBy TwoNine (Coord | Fraction)?
-TenDeg (Coord | Fraction)?
-TwoNine Fraction
+Tens
+HundredBy TwoNine Fraction? Coord?
+TenDeg Fraction? Coord?
+TwoNine Fraction Coord?
 OneFive Layer
+CoordIrregular
+[<100>:щэ] Half
 # Reduplication :TwoNine Distr TwoNine
 # Reduplication :One Distr One
 
@@ -18,8 +21,15 @@ TwoFive | SixNine
 PATTERN OneFive
 One | TwoFive
 
+PATTERN Tens
+TensStem[lit] TenBy[lit]
+TensStem[kub] TenBy[kub]
+TensStem[malk] TenBy[malk]
+TensStem[bes] TenBy[bes]
+TensIrregular
+
 PATTERN Fraction
-Fract TwoNine? # пока нет числителей, которые степени десятки
+Fract TwoNine? # пока нет числителей, которые степени десятки и несколько десятков
 
 LEXICON Zero
 <0>:нол
@@ -39,10 +49,44 @@ LEXICON SixNine
 <8>:й{ə}
 <9>:бгъ{ʷ}{ə}
 
+LEXICON TensStem
+<2>:тӏо[lit,bes]
+<2>:то[kub,malk]
+<3>:щэ[lit]
+<3>:шэ[malk]
+<4>:плӏ{ə}[lit]
+<4>:пӏлӏ{ə}[bes]
+<5>:тх{ʷ}{ə}[lit,malk]
+<6>:х{ə}[lit,malk,bes]
+<7>:бл{ə}[lit,bes]
+<8>:и[lit,malk]
+<9>:бгъ{ʷ}{ə}[lit,malk,bes]
+
 LEXICON TenPlus
 <10>:пщы
 <10>:пшы
 <10>:пшьы
+
+LEXICON TenBy
+<10>:щӏ[lit,kub]
+<10>:шӏ[malk]
+<10>:чьӏ[bes]
+
+LEXICON Linker
+<lnk>:и
+
+LEXICON TensIrregular
+<7><10>:блыш
+<2><10><lnk><4>:тӏочьӏипӏлӏ
+<2><10><lnk><3>:тӏошӏиш
+<2><10><lnk><3>:тӏочьӏищ
+<2><10><lnk><3>:тӏощӏищ
+<2><10><lnk><2>:тӏощӏитӏ
+<2><10><lnk><2>:тӏочьӏитӏ
+<10><lnk><4>:пӏщӏипӏлӏ
+<10><8>:пщӏей
+<10><8>:пшӏей
+<10><8>:пӏчьӏей
 
 LEXICON Over
 <проходить>:кӏу
@@ -67,6 +111,15 @@ LEXICON Fract
 
 LEXICON Coord
 <coord>:рэ
+
+LEXICON CoordIrregular
+<10><coord>:пӏчӏырэ
+<10><coord>:пчьӏырэ
+<10><проходить><1><coord>:пӏщӏыкӏузрэ
+
+LEXICON Half
+<половина>:ныкъуэ
+<половина>:ныкъо
 
 LEXICON Layer
 <слой>:ащӏэ
