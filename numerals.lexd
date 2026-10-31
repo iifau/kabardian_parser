@@ -2,7 +2,7 @@ PATTERNS
 Zero
 OneNine Coord?
 TenPlus Over OneNine Fraction?
-Tens
+Tens Fraction?
 HundredBy TwoNine Fraction? Coord?
 TenDeg Fraction? Coord?
 TwoNine Fraction Coord?
