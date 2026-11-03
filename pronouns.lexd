@@ -1,0 +1,59 @@
+PATTERNS
+Pers PersCase?
+Pers Poss[-ind]
+PossThird
+PossInd PossCase?
+
+PATTERN PersCase
+PersExt (Ins | Adv)
+
+PATTERN PossCase
+(Abs | Obl | Adv[full] | (Obl Ins))
+
+PATTERN PossInd
+PersBase :PersBase Poss[ind]
+PossThirdIndep
+PossExcept
+
+LEXICON Pers
+<1sg>:сэ
+<2sg>:уэ
+<1pl>:дэ
+<2pl>:фэ
+
+LEXICON PersBase
+<1sg>:сы
+<2sg>:уы
+<1pl>:ды
+<2pl>:фы
+
+LEXICON PersExt
+:р
+
+LEXICON Poss
+<poss>:и
+<poss>:ей[ind]
+
+LEXICON PossThird
+<3sg><poss>:и
+<3pl><poss>:я
+
+LEXICON PossThirdIndep
+<3sg><poss>:ей
+<3pl><poss>:яй
+
+LEXICON PossExcept
+<2sg><poss>:ууей
+
+LEXICON Abs
+<abs>:р
+
+LEXICON Obl
+<obl>:м
+
+LEXICON Ins
+<ins>:кӏэ
+
+LEXICON Adv
+<adv>:уэ[full]
+<adv>:у
