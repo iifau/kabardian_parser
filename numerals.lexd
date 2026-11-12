@@ -1,16 +1,15 @@
 PATTERNS
 Zero
-OneNine Coord?
-TenPlus Over OneNine Fraction?
-Tens Fraction?
-HundredBy TwoNine Fraction? Coord?
-TenDeg Fraction? Coord?
-TwoNine Fraction Coord?
-OneFive Layer
+OneNine ([>:>] Coord)?
+TenPlus [>:>] Over [>:>] OneNine
+TenPlus [>:>] Over [>:>] FractUnit [>:>] Fraction
+Tens ([>:>] Fraction)?
+HundredBy [>:>] TwoNine ([>:>] Fraction)? ([>:>] Coord)?
+TenDeg ([>:>] Fraction)? ([>:>] Coord)?
+TwoNine [>:>] Fraction ([>:>] Coord)?
+OneFive [>:>] Layer
 CoordIrregular
-[<100>:щэ] Half
-# Reduplication :TwoNine Distr TwoNine
-# Reduplication :One Distr One
+[<100>:щэ] [>:>] Half
 
 PATTERN OneNine
 One | TwoFive | SixNine
@@ -21,15 +20,49 @@ TwoFive | SixNine
 PATTERN OneFive
 One | TwoFive
 
+PATTERN TenDeg
+Ten | HigherPowers
+
 PATTERN Tens
-TensStem[lit] TenBy[lit]
-TensStem[kub] TenBy[kub]
-TensStem[malk] TenBy[malk]
-TensStem[bes] TenBy[bes]
+TensStem[lit] [>:>] TenBy[lit]
+TensStem[kub] [>:>] TenBy[kub]
+TensStem[malk] [>:>] TenBy[malk]
+TensStem[bes] [>:>] TenBy[bes]
 TensIrregular
 
 PATTERN Fraction
-Fract TwoNine? # пока нет числителей, которые степени десятки и несколько десятков
+Fract ([>:>] TwoNine)?
+
+PATTERN FractUnit
+OneNine[-eight] | FractEight
+
+PATTERN DistrRy
+One Distr :One
+DistrRyTwoNine
+
+PATTERN DistrRyTwoNine
+TwoFive Distr :TwoFive
+SixNine[-eight] Distr :SixNine[-eight]
+Ten Distr :Ten
+DistrEight
+
+PATTERN DistrPower
+PowerOneDistr
+DistrRyTwoNine
+
+PATTERN DistrHyph
+TenPlus Over One [<distr>:-] :TenPlus :Over :One
+TenPlus Over TwoFive [<distr>:-] :TenPlus :Over :TwoFive
+TenPlus Over SixNine [<distr>:-] :TenPlus :Over :SixNine
+TensStem[lit] TenBy[lit] [<distr>:-] :TensStem[lit] :TenBy[lit]
+TensStem[kub] TenBy[kub] [<distr>:-] :TensStem[kub] :TenBy[kub]
+TensStem[malk] TenBy[malk] [<distr>:-] :TensStem[malk] :TenBy[malk]
+TensStem[bes] TenBy[bes] [<distr>:-] :TensStem[bes] :TenBy[bes]
+TensIrregular [<distr>:-] :TensIrregular
+HundredBy TwoFive [<distr>:-] :HundredBy :TwoFive
+HundredBy SixNine [<distr>:-] :HundredBy :SixNine
+HigherPowers [<distr>:-] :HigherPowers
+HigherPowers [:-] DistrPower
 
 LEXICON Zero
 <0>:нол
@@ -46,7 +79,7 @@ LEXICON TwoFive
 LEXICON SixNine
 <6>:х{ə}
 <7>:бл{ə}
-<8>:й{ə}
+<8>:й{ə}[eight]
 <9>:бгъ{ʷ}{ə}
 
 LEXICON TensStem
@@ -76,17 +109,17 @@ LEXICON Linker
 <lnk>:и
 
 LEXICON TensIrregular
-<7><10>:блыш
-<2><10><lnk><4>:тӏочьӏипӏлӏ
-<2><10><lnk><3>:тӏошӏиш
-<2><10><lnk><3>:тӏочьӏищ
-<2><10><lnk><3>:тӏощӏищ
-<2><10><lnk><2>:тӏощӏитӏ
-<2><10><lnk><2>:тӏочьӏитӏ
-<10><lnk><4>:пӏщӏипӏлӏ
-<10><8>:пщӏей
-<10><8>:пшӏей
-<10><8>:пӏчьӏей
+<7>><10>:блы>ш
+<2>><10>><lnk>><4>:тӏо>чьӏ>и>пӏлӏ
+<2>><10>><lnk>><3>:тӏо>шӏ>и>ш
+<2>><10>><lnk>><3>:тӏо>чьӏ>и>щ
+<2>><10>><lnk>><3>:тӏо>щӏ>и>щ
+<2>><10>><lnk>><2>:тӏо>щӏ>и>тӏ
+<2>><10>><lnk>><2>:тӏо>чьӏ>и>тӏ
+<10>><lnk>><4>:пӏщӏ>и>пӏлӏ
+<10>><8>:пщӏе>й
+<10>><8>:пшӏе>й
+<10>><8>:пӏчьӏе>й
 
 LEXICON Over
 <проходить>:кӏу
@@ -95,11 +128,13 @@ LEXICON HundredBy
 <100>:щи
 <100>:ши
 
-LEXICON TenDeg
+LEXICON Ten
 <10>:пщӏ{ə}
 <10>:пӏщӏ{ə}
 <10>:пшӏ{ə}
 <10>:пӏчьӏ{ə}
+
+LEXICON HigherPowers
 <100>:щэ
 <100>:шэ
 <1000>:мин
@@ -108,6 +143,9 @@ LEXICON TenDeg
 
 LEXICON Fract
 <fract>:анэ
+
+LEXICON FractEight
+<8>:ий
 
 LEXICON Coord
 <coord>:рэ
@@ -129,3 +167,9 @@ LEXICON Distr
 
 LEXICON Reduplication
 <rdp>:
+
+LEXICON DistrEight
+<8><distr>:ирий
+
+LEXICON PowerOneDistr
+<1><distr>:зэрыз
