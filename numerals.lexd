@@ -1,15 +1,18 @@
 PATTERNS
 Zero
-OneNine ([>:>] Coord)?
+OneNine
 TenPlus [>:>] Over [>:>] OneNine
 TenPlus [>:>] Over [>:>] FractUnit [>:>] Fraction
 Tens ([>:>] Fraction)?
-HundredBy [>:>] TwoNine ([>:>] Fraction)? ([>:>] Coord)?
-TenDeg ([>:>] Fraction)? ([>:>] Coord)?
-TwoNine [>:>] Fraction ([>:>] Coord)?
+HundredBy [>:>] TwoNine ([>:>] Fraction)?
+TenDeg ([>:>] Fraction)?
+TwoNine [>:>] Fraction
 OneFive [>:>] Layer
-CoordIrregular
 [<100>:щэ] [>:>] Half
+DistrRy
+DistrFull
+HigherPowers [>:-] DistrPower
+HigherPowers[-hundred] [>:-] DistrTen
 
 PATTERN OneNine
 One | TwoFive | SixNine
@@ -37,32 +40,34 @@ PATTERN FractUnit
 OneNine[-eight] | FractEight
 
 PATTERN DistrRy
-One Distr :One
-DistrRyTwoNine
+One [>:>] Distr [>:>] Reduplication :One
+DistrTwoNine
+DistrTen
 
-PATTERN DistrRyTwoNine
-TwoFive Distr :TwoFive
-SixNine[-eight] Distr :SixNine[-eight]
-Ten Distr :Ten
+PATTERN DistrTwoNine
+TwoFive [>:>] Distr [>:>] Reduplication :TwoFive
+SixNine[-eight] [>:>] Distr [>:>] Reduplication :SixNine[-eight]
 DistrEight
+
+PATTERN DistrTen
+Ten [>:>] Distr [>:>] Reduplication :Ten
 
 PATTERN DistrPower
 PowerOneDistr
-DistrRyTwoNine
+DistrTwoNine
 
-PATTERN DistrHyph
-TenPlus Over One [<distr>:-] :TenPlus :Over :One
-TenPlus Over TwoFive [<distr>:-] :TenPlus :Over :TwoFive
-TenPlus Over SixNine [<distr>:-] :TenPlus :Over :SixNine
-TensStem[lit] TenBy[lit] [<distr>:-] :TensStem[lit] :TenBy[lit]
-TensStem[kub] TenBy[kub] [<distr>:-] :TensStem[kub] :TenBy[kub]
-TensStem[malk] TenBy[malk] [<distr>:-] :TensStem[malk] :TenBy[malk]
-TensStem[bes] TenBy[bes] [<distr>:-] :TensStem[bes] :TenBy[bes]
-TensIrregular [<distr>:-] :TensIrregular
-HundredBy TwoFive [<distr>:-] :HundredBy :TwoFive
-HundredBy SixNine [<distr>:-] :HundredBy :SixNine
-HigherPowers [<distr>:-] :HigherPowers
-HigherPowers [:-] DistrPower
+PATTERN DistrFull
+TenPlus [>:>] Over [>:>] One FullRepeat :TenPlus :Over :One
+TenPlus [>:>] Over [>:>] TwoFive FullRepeat :TenPlus :Over :TwoFive
+TenPlus [>:>] Over [>:>] SixNine FullRepeat :TenPlus :Over :SixNine
+TensStem[lit] [>:>] TenBy[lit] FullRepeat :TensStem[lit] :TenBy[lit]
+TensStem[kub] [>:>] TenBy[kub] FullRepeat :TensStem[kub] :TenBy[kub]
+TensStem[malk] [>:>] TenBy[malk] FullRepeat :TensStem[malk] :TenBy[malk]
+TensStem[bes] [>:>] TenBy[bes] FullRepeat :TensStem[bes] :TenBy[bes]
+TensIrregular FullRepeat :TensIrregular
+HundredBy [>:>] TwoFive FullRepeat :HundredBy :TwoFive
+HundredBy [>:>] SixNine FullRepeat :HundredBy :SixNine
+HigherPowers FullRepeat :HigherPowers
 
 LEXICON Zero
 <0>:нол
@@ -135,8 +140,8 @@ LEXICON Ten
 <10>:пӏчьӏ{ə}
 
 LEXICON HigherPowers
-<100>:щэ
-<100>:шэ
+<100>:щэ[hundred]
+<100>:шэ[hundred]
 <1000>:мин
 <1000000>:мелуан
 <1000000>:мелиуан
@@ -146,14 +151,6 @@ LEXICON Fract
 
 LEXICON FractEight
 <8>:ий
-
-LEXICON Coord
-<coord>:рэ
-
-LEXICON CoordIrregular
-<10><coord>:пӏчӏырэ
-<10><coord>:пчьӏырэ
-<10><проходить><1><coord>:пӏщӏыкӏузрэ
 
 LEXICON Half
 <половина>:ныкъуэ
@@ -168,8 +165,11 @@ LEXICON Distr
 LEXICON Reduplication
 <rdp>:
 
+LEXICON FullRepeat
+><distr><rdp>:{R}
+
 LEXICON DistrEight
-<8><distr>:ирий
+<8>><distr>><rdp>:и>ри>й
 
 LEXICON PowerOneDistr
-<1><distr>:зэрыз
+<1>><distr>><rdp>:зэ>ры>з
