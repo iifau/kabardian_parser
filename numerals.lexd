@@ -1,18 +1,19 @@
 PATTERNS
 Zero
-OneNine
-TenPlus [>:>] Over [>:>] OneNine
+OneNine ([>:>] MultE)?
+TenPlus [>:>] Over [>:>] OneNine ([>:>] MultRe)?
 TenPlus [>:>] Over [>:>] FractUnit [>:>] Fraction
-Tens ([>:>] Fraction)?
-HundredBy [>:>] TwoNine ([>:>] Fraction)?
+Tens (([>:>] Fraction) | ([>:>] MultRe))?
+HundredBy [>:>] TwoNine (([>:>] Fraction) | ([>:>] MultRe))?
 TenDeg ([>:>] Fraction)?
 TwoNine [>:>] Fraction
 OneFive [>:>] Layer
 [<100>:щэ] [>:>] Half
 DistrRy
 DistrFull
-HigherPowers [>:-] DistrPower
+HigherPowers (([>:-] DistrPower) | ([>:>] MultRe))
 HigherPowers[-hundred] [>:-] DistrTen
+Ten [>:>] MultE
 
 PATTERN OneNine
 One | TwoFive | SixNine
@@ -76,9 +77,9 @@ LEXICON One
 <1>:з{ə}
 
 LEXICON TwoFive
-<2>:тӏ{ʷ}{ə}
+<2>:тI{ʷ}{ə}
 <3>:щ{ə}
-<4>:плӏ{ə}
+<4>:плI{ə}
 <5>:тх{ʷ}{ə}
 
 LEXICON SixNine
@@ -88,12 +89,12 @@ LEXICON SixNine
 <9>:бгъ{ʷ}{ə}
 
 LEXICON TensStem
-<2>:тӏо[lit,bes]
+<2>:тIо[lit,bes]
 <2>:то[kub,malk]
 <3>:щэ[lit]
 <3>:шэ[malk]
-<4>:плӏ{ə}[lit]
-<4>:пӏлӏ{ə}[bes]
+<4>:плI{ə}[lit]
+<4>:пIлI{ə}[bes]
 <5>:тх{ʷ}{ə}[lit,malk]
 <6>:х{ə}[lit,malk,bes]
 <7>:бл{ə}[lit,bes]
@@ -106,38 +107,38 @@ LEXICON TenPlus
 <10>:пшьы
 
 LEXICON TenBy
-<10>:щӏ[lit,kub]
-<10>:шӏ[malk]
-<10>:чьӏ[bes]
+<10>:щI[lit,kub]
+<10>:шI[malk]
+<10>:чьI[bes]
 
 LEXICON Linker
 <lnk>:и
 
 LEXICON TensIrregular
 <7>><10>:блы>ш
-<2>><10>><lnk>><4>:тӏо>чьӏ>и>пӏлӏ
-<2>><10>><lnk>><3>:тӏо>шӏ>и>ш
-<2>><10>><lnk>><3>:тӏо>чьӏ>и>щ
-<2>><10>><lnk>><3>:тӏо>щӏ>и>щ
-<2>><10>><lnk>><2>:тӏо>щӏ>и>тӏ
-<2>><10>><lnk>><2>:тӏо>чьӏ>и>тӏ
-<10>><lnk>><4>:пӏщӏ>и>пӏлӏ
-<10>><8>:пщӏе>й
-<10>><8>:пшӏе>й
-<10>><8>:пӏчьӏе>й
+<2>><10>><lnk>><4>:тIо>чьI>и>пIлI
+<2>><10>><lnk>><3>:тIо>шI>и>ш
+<2>><10>><lnk>><3>:тIо>чьI>и>щ
+<2>><10>><lnk>><3>:тIо>щI>и>щ
+<2>><10>><lnk>><2>:тIо>щI>и>тI
+<2>><10>><lnk>><2>:тIо>чьI>и>тI
+<10>><lnk>><4>:пIщI>и>пIлI
+<10>><8>:пщIе>й
+<10>><8>:пшIе>й
+<10>><8>:пIчьIе>й
 
 LEXICON Over
-<проходить>:кӏу
+<идти>:кIу
 
 LEXICON HundredBy
 <100>:щи
 <100>:ши
 
 LEXICON Ten
-<10>:пщӏ{ə}
-<10>:пӏщӏ{ə}
-<10>:пшӏ{ə}
-<10>:пӏчьӏ{ə}
+<10>:пщI{ə}
+<10>:пIщI{ə}
+<10>:пшI{ə}
+<10>:пIчьI{ə}
 
 LEXICON HigherPowers
 <100>:щэ[hundred]
@@ -157,7 +158,7 @@ LEXICON Half
 <половина>:ныкъо
 
 LEXICON Layer
-<слой>:ащӏэ
+<слой>:ащIэ
 
 LEXICON Distr
 <distr>:ры
@@ -173,3 +174,9 @@ LEXICON DistrEight
 
 LEXICON PowerOneDistr
 <1>><distr>><rdp>:зэ>ры>з
+
+LEXICON MultE
+<mult>:э
+
+LEXICON MultRe
+<mult>:рэ
